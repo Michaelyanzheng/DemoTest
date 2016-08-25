@@ -2,6 +2,7 @@ package com.zheng.demotest.slidelayout;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,7 +15,15 @@ import com.zheng.demotest.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SlideActivity extends Activity {
+
+    @BindView(R.id.rv_main)
+    RecyclerView mRvMain;
+
+    private MyRecyclerViewAdapter mMyRecyclerViewAdapter;
 
     private ListView mListView;
 
@@ -27,6 +36,19 @@ public class SlideActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slide);
+        ButterKnife.bind(this);
+
+        initView();
+
+//        mMyAdapter = new MyAdapter();
+//        mListView.setAdapter(mMyAdapter);
+
+        mMyRecyclerViewAdapter = new MyRecyclerViewAdapter();
+        mRvMain.setAdapter(mMyRecyclerViewAdapter);
+
+    }
+
+    private void initView(){
 
         mMyBeanList = new ArrayList<>();
 
@@ -35,11 +57,43 @@ public class SlideActivity extends Activity {
             MyBean myBean = new MyBean("content" + i);
             mMyBeanList.add(myBean);
         }
+    }
 
-        mListView = (ListView) findViewById(R.id.lv_main);
 
-        mMyAdapter = new MyAdapter();
-        mListView.setAdapter(mMyAdapter);
+    class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder>{
+
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new MyViewHolder(View.inflate(SlideActivity.this,R.layout.item_main,null));
+        }
+
+        @Override
+        public void onBindViewHolder(MyViewHolder holder, int position) {
+
+            MyBean myBean = mMyBeanList.get(position);
+            holder.mTvContent.setText(myBean.getName());
+            holder.mTvDelete.setText("delete");
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return mMyBeanList.size();
+        }
+
+        class MyViewHolder extends RecyclerView.ViewHolder{
+
+            private TextView mTvContent;
+            private TextView mTvDelete;
+
+            public MyViewHolder(View itemView) {
+                super(itemView);
+
+                mTvContent = (TextView) itemView.findViewById(R.id.item_content);
+                mTvDelete = (TextView) itemView.findViewById(R.id.item_delete);
+            }
+        }
+
     }
 
     class MyAdapter extends BaseAdapter {
@@ -120,12 +174,12 @@ public class SlideActivity extends Activity {
         }
     }
 
-    class MyStateChangerListener implements SlideLayout.onStateChangerListener{
+    class MyStateChangerListener implements SlideLayout.onStateChangerListener {
 
         @Override
         public void onDown(SlideLayout slideLayout) {
 
-            if (mSlideLayout != null && mSlideLayout != slideLayout){
+            if (mSlideLayout != null && mSlideLayout != slideLayout) {
                 mSlideLayout.closeDelete();
             }
         }
@@ -139,7 +193,7 @@ public class SlideActivity extends Activity {
         @Override
         public void onClose(SlideLayout slideLayout) {
 
-            if (mSlideLayout == slideLayout){
+            if (mSlideLayout == slideLayout) {
                 mSlideLayout = null;
             }
         }
