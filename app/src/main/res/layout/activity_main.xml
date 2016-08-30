@@ -48,4 +48,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <com.zheng.demotest.mybuttom.MyButton
+        android:id="@+id/mbtn_flowlayout"
+        android:text="FlowLayout"
+        app:show="FlowLayout"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/mbtn_wave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.zheng.demotest.mybuttom.MyButton
+        android:id="@+id/mbtn_custombtn"
+        android:text="CustomButton"
+        app:show="CustomButton"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/mbtn_flowlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.zheng.demotest.mybuttom.MyButton
+        android:id="@+id/mbtn_handler"
+        android:text="Handler"
+        app:show="Handler"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/mbtn_flowlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.zheng.demotest.mybuttom.MyButton
+        android:id="@+id/mbtn_fragmenttestactivity"
+        android:text="Fragment"
+        app:show="Fragment"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/mbtn_handler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.zheng.demotest.mybuttom.MyButton
+        android:id="@+id/mbtn_dbactivity"
+        android:text="DBActivity"
+        app:show="DBActivity"
+        android:layout_marginTop="10dp"
+        android:layout_above="@id/mbtn_fragmenttestactivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>

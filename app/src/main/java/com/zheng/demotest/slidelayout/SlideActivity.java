@@ -15,17 +15,14 @@ import com.zheng.demotest.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class SlideActivity extends Activity {
 
-    @BindView(R.id.rv_main)
-    RecyclerView mRvMain;
-
-    private MyRecyclerViewAdapter mMyRecyclerViewAdapter;
+//    @BindView(R.id.rv_main)
+//    private RecyclerView mRvMain;
 
     private ListView mListView;
+
+    private MyRecyclerViewAdapter mMyRecyclerViewAdapter;
 
     private List<MyBean> mMyBeanList;
     private MyAdapter mMyAdapter;
@@ -36,15 +33,22 @@ public class SlideActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slide);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
 
         initView();
+        mListView = (ListView) findViewById(R.id.lv_main);
 
-//        mMyAdapter = new MyAdapter();
-//        mListView.setAdapter(mMyAdapter);
+        mMyAdapter = new MyAdapter();
+        mListView.setAdapter(mMyAdapter);
 
-        mMyRecyclerViewAdapter = new MyRecyclerViewAdapter();
-        mRvMain.setAdapter(mMyRecyclerViewAdapter);
+//        mRvMain = (RecyclerView) findViewById(R.id.rv_main);
+//
+//        mMyRecyclerViewAdapter = new MyRecyclerViewAdapter();
+//
+//
+//        mRvMain.setLayoutManager(new LinearLayoutManager(this));
+//
+//        mRvMain.setAdapter(mMyRecyclerViewAdapter);
 
     }
 
@@ -73,7 +77,6 @@ public class SlideActivity extends Activity {
             MyBean myBean = mMyBeanList.get(position);
             holder.mTvContent.setText(myBean.getName());
             holder.mTvDelete.setText("delete");
-
         }
 
         @Override
@@ -93,7 +96,6 @@ public class SlideActivity extends Activity {
                 mTvDelete = (TextView) itemView.findViewById(R.id.item_delete);
             }
         }
-
     }
 
     class MyAdapter extends BaseAdapter {

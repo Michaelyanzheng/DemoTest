@@ -17,13 +17,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".circleball.CircleActivity"/>
         <activity android:name=".myviewpage.MyViewPageActivity"/>
         <activity android:name=".quickquery.QuickQueryActivity"/>
         <activity android:name=".slidelayout.SlideActivity"/>
         <activity android:name=".wave.WaveActivity"/>
-
+        <activity android:name=".flowlayout.FlowLayoutActivity"/>
+        <activity android:name=".custombutton.CustomButtonActivity"/>
+        <activity android:name=".handler.HandlerActivity"/>
+        <activity android:name=".fragment.FragmentTestActivity"/>
+        <activity android:name=".db.DbActivity"/>
+        <activity android:name=".fragment.FragmentListActivity"/>
+        <activity android:name=".fragment.FragmentContentActivity"/>
 
     </application>
 
