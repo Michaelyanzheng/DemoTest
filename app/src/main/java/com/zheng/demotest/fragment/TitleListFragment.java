@@ -47,7 +47,7 @@ public class TitleListFragment extends ListFragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_DETAIL){
-            mTitleList.set(mCurrentPos,data.getStringExtra(TitleContentFragment.REQUEST));
+            mTitleList.set(mCurrentPos,mTitleList.get(mCurrentPos) + data.getStringExtra(TitleContentFragment.REQUEST));
             mArrayAdapter.notifyDataSetChanged();
         }
 
