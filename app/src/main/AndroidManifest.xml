@@ -3,6 +3,7 @@
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -29,6 +30,13 @@
         <activity android:name=".db.DbActivity"/>
         <activity android:name=".fragment.FragmentListActivity"/>
         <activity android:name=".fragment.FragmentContentActivity"/>
+        <activity android:name=".okhttp.OkhttpActivity"/>
+        <activity android:name=".serviceactivity.ServiceChangeActivityActivity"/>
+        <service android:name=".serviceactivity.MyService"/>
+
+        <activity android:name=".animation.AnimationActivity"/>
+        <activity android:name=".animation.TweenActivity"/>
+        <activity android:name=".animation.PropertyActivity"/>
 
     </application>
 

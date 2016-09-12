@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.zheng.demotest.animation.AnimationActivity;
 import com.zheng.demotest.circleball.CircleActivity;
 import com.zheng.demotest.custombutton.CustomButtonActivity;
 import com.zheng.demotest.db.DbActivity;
@@ -14,7 +15,9 @@ import com.zheng.demotest.fragment.FragmentListActivity;
 import com.zheng.demotest.handler.HandlerActivity;
 import com.zheng.demotest.mybuttom.MyButton;
 import com.zheng.demotest.myviewpage.MyViewPageActivity;
+import com.zheng.demotest.okhttp.OkhttpActivity;
 import com.zheng.demotest.quickquery.QuickQueryActivity;
+import com.zheng.demotest.serviceactivity.ServiceChangeActivityActivity;
 import com.zheng.demotest.slidelayout.SlideActivity;
 import com.zheng.demotest.wave.WaveActivity;
 
@@ -46,6 +49,9 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
     private MyButton mMbtnHandler;
     private MyButton mMbtnFragmentTest;
     private MyButton mMbtnDBActivity;
+    private MyButton mMbtnOkhttp;
+    private MyButton mMbtnServiceChangeActivity;
+    private MyButton mMbtnAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +69,9 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
         mMbtnHandler = (MyButton) findViewById(R.id.mbtn_handler);
         mMbtnFragmentTest = (MyButton) findViewById(R.id.mbtn_fragmenttestactivity);
         mMbtnDBActivity = (MyButton) findViewById(R.id.mbtn_dbactivity);
+        mMbtnOkhttp = (MyButton) findViewById(R.id.mbtn_okhttpactivity);
+        mMbtnServiceChangeActivity = (MyButton) findViewById(R.id.mbtn_service_change_activity);
+        mMbtnAnimation = (MyButton) findViewById(R.id.mbtn_animation);
 //
         mMbtnCircle.setOnClickBackListener(this);
         mMbtnMyviewpage.setOnClickBackListener(this);
@@ -74,6 +83,9 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
         mMbtnHandler.setOnClickBackListener(this);
         mMbtnFragmentTest.setOnClickBackListener(this);
         mMbtnDBActivity.setOnClickBackListener(this);
+        mMbtnOkhttp.setOnClickBackListener(this);
+        mMbtnServiceChangeActivity.setOnClickBackListener(this);
+        mMbtnAnimation.setOnClickBackListener(this);
     }
 
     @Override
@@ -149,6 +161,27 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
 
                 Toast.makeText(this, "mbtn_dbactivity", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, DbActivity.class));
+
+                break;
+
+            case R.id.mbtn_okhttpactivity:
+
+                Toast.makeText(this, "mbtn_dbactivity", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, OkhttpActivity.class));
+
+                break;
+
+            case R.id.mbtn_service_change_activity:
+
+//                Toast.makeText(this, "mbtn_service_change_activity", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ServiceChangeActivityActivity.class));
+
+                break;
+
+            case R.id.mbtn_animation:
+
+//                Toast.makeText(this, "mbtn_service_change_activity", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AnimationActivity.class));
 
                 break;
         }
