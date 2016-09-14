@@ -19,6 +19,8 @@ import com.zheng.demotest.okhttp.OkhttpActivity;
 import com.zheng.demotest.quickquery.QuickQueryActivity;
 import com.zheng.demotest.serviceactivity.ServiceChangeActivityActivity;
 import com.zheng.demotest.slidelayout.SlideActivity;
+import com.zheng.demotest.socket.SocketActivity;
+import com.zheng.demotest.socket.SocketService;
 import com.zheng.demotest.wave.WaveActivity;
 
 /**
@@ -52,6 +54,7 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
     private MyButton mMbtnOkhttp;
     private MyButton mMbtnServiceChangeActivity;
     private MyButton mMbtnAnimation;
+    private MyButton mMbtnSocket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,7 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
         mMbtnOkhttp = (MyButton) findViewById(R.id.mbtn_okhttpactivity);
         mMbtnServiceChangeActivity = (MyButton) findViewById(R.id.mbtn_service_change_activity);
         mMbtnAnimation = (MyButton) findViewById(R.id.mbtn_animation);
+        mMbtnSocket = (MyButton) findViewById(R.id.mbtn_socket);
 //
         mMbtnCircle.setOnClickBackListener(this);
         mMbtnMyviewpage.setOnClickBackListener(this);
@@ -86,6 +90,10 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
         mMbtnOkhttp.setOnClickBackListener(this);
         mMbtnServiceChangeActivity.setOnClickBackListener(this);
         mMbtnAnimation.setOnClickBackListener(this);
+        mMbtnSocket.setOnClickBackListener(this);
+
+        Intent intent = new Intent(this, SocketService.class);
+        startService(intent);
     }
 
     @Override
@@ -182,6 +190,13 @@ public class MainActivity extends Activity implements MyButton.onClickBackListen
 
 //                Toast.makeText(this, "mbtn_service_change_activity", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(this, AnimationActivity.class));
+
+                break;
+
+            case R.id.mbtn_socket:
+
+//                Toast.makeText(this, "mbtn_service_change_activity", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SocketActivity.class));
 
                 break;
         }

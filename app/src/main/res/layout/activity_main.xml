@@ -122,4 +122,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <com.zheng.demotest.mybuttom.MyButton
+        android:id="@+id/mbtn_socket"
+        android:text="Socket"
+        app:show="Socket"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/mbtn_custombtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>
